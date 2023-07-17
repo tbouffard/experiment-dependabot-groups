@@ -5,7 +5,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    open-pull-requests-limit: 2
+    # TMP deactivate the limit to ensure that enough RPs are created
+    #open-pull-requests-limit: 2
     versioning-strategy: increase
     rebase-strategy: "disabled"
     commit-message:
@@ -17,6 +18,31 @@ updates:
       - skip-changelog
     reviewers:
       - process-analytics/pa-collaborators
+    groups:
+       css:
+          patterns:
+            - "autoprefixer"
+            - "cssnano"
+            - "postcss*"
+            - "tailwindcss"
+       eslint:
+          patterns:
+            - "@typescript-eslint/*"
+            - "eslint"
+            - "eslint-*"
+            - "lint-staged"
+            - "prettier"
+       jest:
+          patterns:
+            - "@types/jest-*"
+            - "jest"
+            - "jest-*"
+            - "ts-jest"
+       rollup:
+          patterns:
+            - "@rollup/*"
+            - "rollup"
+            - "rollup-plugin-*"
 
   - package-ecosystem: "github-actions"
     # Workflow files stored in the default location of `.github/workflows`
